@@ -2,7 +2,7 @@
 # Sistema control de tráfico urbano
 Prototipo para el sistema de control de tráfico urbano
 
-URL API: https://app.apiary.io/actividad10/ <br/>
+URL API: http://docs.actividad10.apiary.io/ <br/>
 Github: https://github.com/druizr/sistemacontroltrafico
 
 ## API Blueprint
