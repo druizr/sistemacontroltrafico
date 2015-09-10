@@ -37,6 +37,7 @@ Buscar video por su identificador único (ID)
     + id (int) ID Video
 
 + Response 200 (application/json)
+
         {
             "id": 1,
             "inicio_transmision_video": "31-08-2015 00:01",
