@@ -1,4 +1,4 @@
-# sistemacontroltrafico
+# Sistema Control De Trafico
 # Sistema control de tráfico urbano
 Prototipo para el sistema de control de tráfico urbano
 
