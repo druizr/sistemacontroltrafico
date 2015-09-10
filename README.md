@@ -7,7 +7,7 @@ Github: https://github.com/druizr/sistemacontroltrafico
 
 ## API Blueprint
 
-+ [Documentación API](http://docs.actividad10.apiary.io/)
++ [Documentación API](http://docs.consultavideo.apiary.io/)
 
 # Videos [/videos/{?id}]
 
