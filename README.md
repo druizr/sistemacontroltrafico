@@ -1,5 +1,5 @@
 # Sistema control de tráfico urbano
-# Consulta de videos on-line y grabaciones para el Sistema de Control de Tráfico Urbano
+# Consulta de videos on-line y grabaciones.
 Prototipo para el sistema de control de tráfico urbano
 
 URL API: http://private-c9e3b-consultavideo.apiary-mock.com <br/>
