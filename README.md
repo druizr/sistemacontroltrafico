@@ -37,7 +37,6 @@ Buscar video por su identificador único (ID)
     + id (int) ID Video
 
 + Response 200 (application/json)
-
         {
             "id": 1,
             "inicio_transmision_video": "31-08-2015 00:01",
@@ -47,7 +46,6 @@ Buscar video por su identificador único (ID)
         }
 
 ## Eliminar video [DELETE /videos/{id}]
-
 + Parameters
     + id (int) ID Video
 
@@ -98,8 +96,8 @@ Buscar video por su identificador único (ID)
                     "marca":"Samsung UltraHD Pro",
                     "fecha_agregada":"30-08-2015",
                     "ip":"192.168.1.200",
-                    "latitud":"-33.000101",
-                    "longitud":"-77.01212",
+                    "latitud":"-43.000101",
+                    "longitud":"-87.01212",
                     "configuración":{
                         "brillo": 20,
                         "calidad": "1024p",
@@ -120,8 +118,8 @@ Buscar video por su identificador único (ID)
             "marca":"Samsung UltraHD Pro",
             "fecha_agregada":"30-08-2015",
             "ip":"192.168.1.200",
-            "latitud":"-33.000101",
-            "longitud":"-77.01212",
+            "latitud":"-43.000101",
+            "longitud":"-87.01212",
             "configuración":{
                 "brillo": 20,
                 "calidad": "1024p",
@@ -151,8 +149,8 @@ Buscar video por su identificador único (ID)
             "marca":"Samsung UltraHD Pro",
             "fecha_agregada":"05-09-2015",
             "ip":"192.168.1.200",
-            "latitud":"-33.000101",
-            "longitud":"-77.01212",
+            "latitud":"-43.000101",
+            "longitud":"-87.01212",
             "configuración":{
                 "brillo": 20,
                 "calidad": "1024p",
@@ -203,11 +201,11 @@ Buscar video por su identificador único (ID)
             "marca":"Samsung UltraHD 4K Pro",
             "fecha_add":"30-08-2015",
             "ip":"192.168.1.201",
-            "latitud":"-33.000101",
-            "longitud":"-77.01212",
+            "latitud":"-43.000101",
+            "longitud":"-87.01212",
             "configuración":{
                 "brillo": 10,
-                "calidad": "1280p",
+                "calidad": "1024p",
                 "color":"rgba(0,0,0)",
                 "contraste":30
             }
@@ -222,8 +220,8 @@ Buscar video por su identificador único (ID)
             "marca":"Samsung UltraHD Pro",
             "fecha_add":"31-08-2015",
             "ip":"192.168.1.200",
-            "latitud":"-33.000101",
-            "longitud":"-77.01212",
+            "latitud":"-43.000101",
+            "longitud":"-87.01212",
             "configuración":{
                 "brillo": 10,
                 "calidad": "1024p",
@@ -254,8 +252,8 @@ Buscar video por su identificador único (ID)
             "tasa_vehiculo": "-",
             "tipo_fichero":"avi",
             "compresion":"format-x",
-            "secuencias_grabadas":100,
-            "total_secuencias":5881,
+            "secuencias_grabadas":250,
+            "total_secuencias":6581,
             "video":{
                 "id": 2,
                 "inicio_transmision": "31-08-2015 00:01",
