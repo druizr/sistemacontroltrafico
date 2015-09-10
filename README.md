@@ -201,6 +201,34 @@ Buscar video por su identificador único (ID)
             }
         }
         
+## Buscar video - CD [GET /grabar-video/{id}]
+
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "inicio_grabación":"30-08-2015 00:00",
+            "tasa_vehiculo": "-",
+            "tipo_fichero":"avi",
+            "compresion":"format-x",
+            "secuencias_grabadas":250,
+            "total_secuencias":6581,
+            "video":{
+                "id": 2,
+                "inicio_transmision": "31-08-2015 00:01",
+                "fin_transmision": "01-09-2015 23:59",
+                "tamano_video": "2 GB",
+            }
+
+        }
+    
++ Response 404 (application/json)
+
+        { 
+            "error": "Recurso no se encuentra" 
+        }
+        
+        
 # Transmitir video [GET /camaras/{id}/transmitir]
 
 + Response 200
@@ -232,35 +260,3 @@ Buscar video por su identificador único (ID)
         }
 
 
-## Buscar video - CD [GET /grabar-video/{id}]
-
-+ Response 200 (application/json)
-
-        {
-            "id": 1,
-            "inicio_grabación":"30-08-2015 00:00",
-            "tasa_vehiculo": "-",
-            "tipo_fichero":"avi",
-            "compresion":"format-x",
-            "secuencias_grabadas":250,
-            "total_secuencias":6581,
-            "video":{
-                "id": 2,
-                "inicio_transmision": "31-08-2015 00:01",
-                "fin_transmision": "01-09-2015 23:59",
-                "tamano_video": "2 GB",
-            }
-
-        }
-    
-+ Response 404 (application/json)
-
-        { 
-            "error": "Recurso no se encuentra" 
-        }
-
-# Broadcast [/broadcast/{id}]
-
-+ Parámetros
-    + id (int) ID Broadcast
-    + descripcion
