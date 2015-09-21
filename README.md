@@ -236,7 +236,7 @@ Opciones para el recurso de las Alarmas.
 
 + Parameters
 
-    + IdAlarma: 1 (number) - Identificador unico de Camara.
+    + IdAlarma: 1 (number) - Identificador unico de la Camara.
     
 ### Crear una Alarma [POST]
 
@@ -291,7 +291,7 @@ Opciones para el recurso de las Alarmas.
 
     + Body
 
-            Camara encontrada
+            La Camara que usted busca fue encontrada con exito
 
 + Request JSON Message
 
@@ -348,7 +348,7 @@ Opciones para el recurso de las Alarmas.
 Recurso Imagen.
 
 ## Imagen [/Imagenes/{IdImagen}]
-Recurso donde se encuentran las opciones para el recurso de las Imagenes.
+Recurso de las Imagenes.
 
 + Parameters
 
@@ -370,7 +370,7 @@ Recurso donde se encuentran las opciones para el recurso de las Imagenes.
 
     + Body
 
-            Imagen encontrada
+            Su Imagen fue encontrada con exito
 
 + Request JSON Message
 
@@ -381,7 +381,7 @@ Recurso donde se encuentran las opciones para el recurso de las Imagenes.
 
             {
               "NroFotograma" :1,
-              "TiempoMs"     :"1000",
+              "TiempoMs"     :"800",
               "NroCamara"    :"1"
             }
 
@@ -407,7 +407,7 @@ Recurso donde se encuentran las opciones para el recurso de las Imagenes.
 
     + Body
 
-            Imagen encontrada
+            Su Imagen fue encontrada con exito
 
 + Request JSON Message
 
@@ -426,19 +426,19 @@ Recurso donde se encuentran las opciones para el recurso de las Imagenes.
             {
               "IdImagen"     :1,
               "NroFotograma" :1,
-              "TiempoMs"     :"1000",
+              "TiempoMs"     :"800",
               "NroCamara"    :"1"
             }
 
 ## Todas las Imagenes [/imagen{?limit}]
-Lista todas las imagenes que forman un video de el sistema de vigilancia de trafico.
+Lista todas las imagenes.
 
 ### Devuelve todas las Imagenes [GET]
 
 + Parameters
 
-    + limit (number, optional) - El maximo numero de imagenes mostradas en pantalla.
-        + Default: `20`
+    + limit (number) - El maximo numero de imagenes mostradas en pantalla.
+        + Default: `50`
 
 + Response 200 (application/json)
 
@@ -446,32 +446,20 @@ Lista todas las imagenes que forman un video de el sistema de vigilancia de traf
           {
               "IdImagen" :1,
               "NroFotograma" :1,
-              "TiempoMs"     :"1000",
-              "NroCamara"    :"1"
-          },
-          {
-              "IdImagen"    :2,
-              "NroFotograma" :2,
-              "TiempoMs"     :"1000",
-              "NroCamara"    :"1"
-          },
-          {
-              "IdImagen"    :3,
-              "NroFotograma" :3,
-              "TiempoMs"     :"1000",
+              "TiempoMs"     :"800",
               "NroCamara"    :"1"
           }
         ]            
             
-# Group SobreImpresion
-Grupo del recurso Sobreimpresion.
+#  SobreImpresion
+Recurso Sobreimpresion.
 
 ## SobreImpresion [/Sobreimpresiones/{IdSobreImpresion}]
-Recurso donde se encuentran las opciones para el recurso de las sobreimpresiones de informacion que van insertos dentro de los videos.
+Recurso donde se encuentran las opciones para el recurso de las sobreimpresiones.
 
 + Parameters
 
-    + IdSobreImpresion: 1 (number) - Identificador unico de Disco.
+    + IdSobreImpresion: 1 (number) - Identificador unico del Disco.
 
 ### Crear una Sobre Impresión [POST]
 
@@ -489,7 +477,7 @@ Recurso donde se encuentran las opciones para el recurso de las sobreimpresiones
 
     + Body
 
-            Sobreimpresion Creada!
+            La Sobreimpresion fue creada con exito.!
 
 + Request JSON Message
 
@@ -501,12 +489,10 @@ Recurso donde se encuentran las opciones para el recurso de las sobreimpresiones
             {
               "NroCamara"                 :"1",
               "AmbitoOrden"               :"",
-              "NroBloquesSobreimpresion"  :"35",
-              "CoordSobreImpresion"       :"42/45",
+              "NroBloquesSobreimpresion"  :"50",
+              "CoordSobreImpresion"       :"40/65",
               "AtribSobreImpresion"       :"Hora",
-              "TipoInformacion"           :"Hora",
-              "Tamano"                    :"10",
-              "TipoCaracteres"            :"ASCII"
+              "Tamano"                    :"15",
             }
 
 + Response 200 (application/json)
@@ -531,7 +517,7 @@ Recurso donde se encuentran las opciones para el recurso de las sobreimpresiones
 
     + Body
 
-            Sobreimpresion encontrada
+            La Sobreimpresion buscada fue encontrada.!
 
 + Request JSON Message
 
@@ -548,30 +534,27 @@ Recurso donde se encuentran las opciones para el recurso de las sobreimpresiones
     + Body
 
             {
-              "IdSobreImpresion"          :1,
-              "NroCamara"                 :"1",
+               "NroCamara"                 :"1",
               "AmbitoOrden"               :"",
-              "NroBloquesSobreimpresion"  :"35",
-              "CoordSobreImpresion"       :"42/45",
+              "NroBloquesSobreimpresion"  :"50",
+              "CoordSobreImpresion"       :"40/65",
               "AtribSobreImpresion"       :"Hora",
-              "TipoInformacion"           :"Hora",
-              "Tamano"                    :"10",
-              "TipoCaracteres"            :"ASCII"
+              "Tamano"                    :"15",
             }
 
-### Edita un Sobreimpresion [PUT]
+### Edita una Sobreimpresion [PUT]
 
 + Request Update Plain Text Message (text/plain)
 
-        Actualizado correctamente!
+        La sobre impresion fue actualizado correctamente!
 
 + Request Update JSON Message (application/json)
 
-        { "message": "Actualizado correctamente!" }
+        { "message": "La sobre impresion fue actualizado correctamente!" }
 
 + Response 204
 
-## Elimina Sobreimpresion [DELETE /sobreimpresion/{IdSobreImpresion}]
+## Eliminar una Sobreimpresion [DELETE /sobreimpresion/{IdSobreImpresion}]
 
 + Parameters
     + IdSobreImpresion (int)
@@ -579,50 +562,25 @@ Recurso donde se encuentran las opciones para el recurso de las sobreimpresiones
 + Response 204
 
 ## Todos las SobreImpresiones [/Sobreimpresion{?limit}]
-Lista todas las sobreimpresiones de los videos del sistema de vigilancia de trafico.
+Lista todas las sobreimpresiones de los videos del sistema de vigilancia del control de trafico urbano.
 
-### Devuelve todos los Sobreimpresiones [GET]
+### Devuelve todas los Sobreimpresiones [GET]
 
 + Parameters
 
     + limit (number, optional) - El maximo numero de Sobreimpresiones mostrados en pantalla.
-        + Default: `20`
+        + Default: `50`
 
 + Response 200 (application/json)
 
         [
           {
-              "IdSobreImpresion"          :1,
               "NroCamara"                 :"1",
               "AmbitoOrden"               :"",
-              "NroBloquesSobreimpresion"  :"35",
-              "CoordSobreImpresion"       :"42/45",
+              "NroBloquesSobreimpresion"  :"50",
+              "CoordSobreImpresion"       :"40/65",
               "AtribSobreImpresion"       :"Hora",
-              "TipoInformacion"           :"Hora",
-              "Tamano"                    :"10",
-              "TipoCaracteres"            :"ASCII"
-          },
-          {
-              "IdSobreImpresion"          :2,
-              "NroCamara"                 :"2",
-              "AmbitoOrden"               :"",
-              "NroBloquesSobreimpresion"  :"35",
-              "CoordSobreImpresion"       :"42/45",
-              "AtribSobreImpresion"       :"Hora",
-              "TipoInformacion"           :"Hora",
-              "Tamano"                    :"10",
-              "TipoCaracteres"            :"ASCII"
-          },
-          {
-              "IdSobreImpresion"          :3,
-              "NroCamara"                 :"3",
-              "AmbitoOrden"               :"",
-              "NroBloquesSobreimpresion"  :"35",
-              "CoordSobreImpresion"       :"42/45",
-              "AtribSobreImpresion"       :"Hora",
-              "TipoInformacion"           :"Hora",
-              "Tamano"                    :"10",
-              "TipoCaracteres"            :"ASCII"
+              "Tamano"                    :"15",
           }
         ]
 
