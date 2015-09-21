@@ -73,20 +73,6 @@ Buscar video por su identificador único (ID)
             "source_video":"http//consultavideo/replay/1"
         }
         
-## Añadir Cámara [POST /camaras]
-
-+ Request (application/json)
-
-        {
-            "marca":"Samsung UltraHD 4K Pro",
-            "fecha_add":"30-08-2015",
-            "brillo": 10,
-            "calidad": "1024p",
-            "color":"rgba(0,0,0)",
-            "contraste":25
-            
-        }
-        
 
 ## Lista de cámaras [GET /camaras/]
 
@@ -110,6 +96,20 @@ Buscar video por su identificador único (ID)
                 }
             }
             ]
+        }
+
+## Añadir Cámara [POST /camaras]
+
++ Request (application/json)
+
+        {
+            "marca":"Samsung UltraHD 4K Pro",
+            "fecha_add":"30-08-2015",
+            "brillo": 10,
+            "calidad": "1024p",
+            "color":"rgba(0,0,0)",
+            "contraste":25
+            
         }
 
 ## Buscar Cámara [GET /camaras/{id}]
@@ -136,7 +136,7 @@ Buscar video por su identificador único (ID)
             "error": "Camara no se encuentra disponible" 
         }
 
-### Editar Cámara [PATCH /camaras/{id}]
+## Editar Cámara [PATCH /camaras/{id}]
 
 + Request (application/json)
 
