@@ -228,7 +228,92 @@ Buscar video por su identificador único (ID)
             "error": "Recurso no se encuentra" 
         }
         
-        
+## Alarma
+Grupo del recurso Alarmas.
+
+## Alarma [/Alarmas/{IdAlarma}]
+Opciones para el recurso de las Alarmas.
+
++ Parameters
+
+    + IdAlarma: 1 (number) - Identificador unico de Camara.
+    
+### Crear una Alarma [POST]
+
++ Request Plain Text Message
+
+    + Headers
+
+            Accept: text/plain
+
++ Response 200 (text/plain)
+
+    + Headers
+
+            X-My-Message-Header: 50
+
+    + Body
+
+            Grabación encontrada
+
++ Request JSON Message
+
+    + Headers
+
+            Accept: application/json
+    + Body
+
+            {
+              "IdAlarma"     :1,
+              "IdCamara"     :"1"
+              "TipoAlarma"   :"Error"
+            }
+
++ Response 200 (application/json)
+
+    + Headers
+
+            X-My-Message-Header: 50
+
+### Devuelve una Alarma [GET]
+
++ Request Plain Text Message
+
+    + Headers
+
+            Accept: text/plain
+
++ Response 200 (text/plain)
+
+    + Headers
+
+            X-My-Message-Header: 50
+
+    + Body
+
+            Camara encontrada
+
++ Request JSON Message
+
+    + Headers
+
+            Accept: application/json
+
++ Response 200 (application/json)
+
+    + Headers
+
+            X-My-Message-Header: 50
+
+    + Body
+
+            {
+              "IdCamara"          :1,
+              "NroCamara"         :"1",
+              "IP"                :"192.168.1.200",
+              "LocalizacionGPS"   :"-43.000101, -87.01212"
+            }
+      
 # Transmitir video [GET /camaras/{id}/transmitir]
 
 + Response 200
@@ -259,4 +344,285 @@ Buscar video por su identificador único (ID)
             }
         }
 
+# Imagen
+Recurso Imagen.
+
+## Imagen [/Imagenes/{IdImagen}]
+Recurso donde se encuentran las opciones para el recurso de las Imagenes.
+
++ Parameters
+
+    + IdImagen: 1 (number) - Identificador unico de una Imagen.
+
+### Crear una Imagen [POST]
+
++ Request Plain Text Message
+
+    + Headers
+
+            Accept: text/plain
+
++ Response 200 (text/plain)
+
+    + Headers
+
+            X-My-Message-Header: 50
+
+    + Body
+
+            Imagen encontrada
+
++ Request JSON Message
+
+    + Headers
+
+            Accept: application/json
+    + Body
+
+            {
+              "NroFotograma" :1,
+              "TiempoMs"     :"1000",
+              "NroCamara"    :"1"
+            }
+
++ Response 200 (application/json)
+
+    + Headers
+
+            X-My-Message-Header: 50
+
+### Devuelve una Imagen [GET]
+
++ Request Plain Text Message
+
+    + Headers
+
+            Accept: text/plain
+
++ Response 200 (text/plain)
+
+    + Headers
+
+            X-My-Message-Header: 50
+
+    + Body
+
+            Imagen encontrada
+
++ Request JSON Message
+
+    + Headers
+
+            Accept: application/json
+
++ Response 200 (application/json)
+
+    + Headers
+
+            X-My-Message-Header: 50
+
+    + Body
+
+            {
+              "IdImagen"     :1,
+              "NroFotograma" :1,
+              "TiempoMs"     :"1000",
+              "NroCamara"    :"1"
+            }
+
+## Todas las Imagenes [/imagen{?limit}]
+Lista todas las imagenes que forman un video de el sistema de vigilancia de trafico.
+
+### Devuelve todas las Imagenes [GET]
+
++ Parameters
+
+    + limit (number, optional) - El maximo numero de imagenes mostradas en pantalla.
+        + Default: `20`
+
++ Response 200 (application/json)
+
+        [
+          {
+              "IdImagen" :1,
+              "NroFotograma" :1,
+              "TiempoMs"     :"1000",
+              "NroCamara"    :"1"
+          },
+          {
+              "IdImagen"    :2,
+              "NroFotograma" :2,
+              "TiempoMs"     :"1000",
+              "NroCamara"    :"1"
+          },
+          {
+              "IdImagen"    :3,
+              "NroFotograma" :3,
+              "TiempoMs"     :"1000",
+              "NroCamara"    :"1"
+          }
+        ]            
+            
+# Group SobreImpresion
+Grupo del recurso Sobreimpresion.
+
+## SobreImpresion [/Sobreimpresiones/{IdSobreImpresion}]
+Recurso donde se encuentran las opciones para el recurso de las sobreimpresiones de informacion que van insertos dentro de los videos.
+
++ Parameters
+
+    + IdSobreImpresion: 1 (number) - Identificador unico de Disco.
+
+### Crear una Sobre Impresión [POST]
+
++ Request Plain Text Message
+
+    + Headers
+
+            Accept: text/plain
+
++ Response 200 (text/plain)
+
+    + Headers
+
+            X-My-Message-Header: 50
+
+    + Body
+
+            Sobreimpresion Creada!
+
++ Request JSON Message
+
+    + Headers
+
+            Accept: application/json
+    + Body
+
+            {
+              "NroCamara"                 :"1",
+              "AmbitoOrden"               :"",
+              "NroBloquesSobreimpresion"  :"35",
+              "CoordSobreImpresion"       :"42/45",
+              "AtribSobreImpresion"       :"Hora",
+              "TipoInformacion"           :"Hora",
+              "Tamano"                    :"10",
+              "TipoCaracteres"            :"ASCII"
+            }
+
++ Response 200 (application/json)
+
+    + Headers
+
+            X-My-Message-Header: 50
+
+### Devuelve una sobreimpresion [GET]
+
++ Request Plain Text Message
+
+    + Headers
+
+            Accept: text/plain
+
++ Response 200 (text/plain)
+
+    + Headers
+
+            X-My-Message-Header: 50
+
+    + Body
+
+            Sobreimpresion encontrada
+
++ Request JSON Message
+
+    + Headers
+
+            Accept: application/json
+
++ Response 200 (application/json)
+
+    + Headers
+
+            X-My-Message-Header: 50
+
+    + Body
+
+            {
+              "IdSobreImpresion"          :1,
+              "NroCamara"                 :"1",
+              "AmbitoOrden"               :"",
+              "NroBloquesSobreimpresion"  :"35",
+              "CoordSobreImpresion"       :"42/45",
+              "AtribSobreImpresion"       :"Hora",
+              "TipoInformacion"           :"Hora",
+              "Tamano"                    :"10",
+              "TipoCaracteres"            :"ASCII"
+            }
+
+### Edita un Sobreimpresion [PUT]
+
++ Request Update Plain Text Message (text/plain)
+
+        Actualizado correctamente!
+
++ Request Update JSON Message (application/json)
+
+        { "message": "Actualizado correctamente!" }
+
++ Response 204
+
+## Elimina Sobreimpresion [DELETE /sobreimpresion/{IdSobreImpresion}]
+
++ Parameters
+    + IdSobreImpresion (int)
+
++ Response 204
+
+## Todos las SobreImpresiones [/Sobreimpresion{?limit}]
+Lista todas las sobreimpresiones de los videos del sistema de vigilancia de trafico.
+
+### Devuelve todos los Sobreimpresiones [GET]
+
++ Parameters
+
+    + limit (number, optional) - El maximo numero de Sobreimpresiones mostrados en pantalla.
+        + Default: `20`
+
++ Response 200 (application/json)
+
+        [
+          {
+              "IdSobreImpresion"          :1,
+              "NroCamara"                 :"1",
+              "AmbitoOrden"               :"",
+              "NroBloquesSobreimpresion"  :"35",
+              "CoordSobreImpresion"       :"42/45",
+              "AtribSobreImpresion"       :"Hora",
+              "TipoInformacion"           :"Hora",
+              "Tamano"                    :"10",
+              "TipoCaracteres"            :"ASCII"
+          },
+          {
+              "IdSobreImpresion"          :2,
+              "NroCamara"                 :"2",
+              "AmbitoOrden"               :"",
+              "NroBloquesSobreimpresion"  :"35",
+              "CoordSobreImpresion"       :"42/45",
+              "AtribSobreImpresion"       :"Hora",
+              "TipoInformacion"           :"Hora",
+              "Tamano"                    :"10",
+              "TipoCaracteres"            :"ASCII"
+          },
+          {
+              "IdSobreImpresion"          :3,
+              "NroCamara"                 :"3",
+              "AmbitoOrden"               :"",
+              "NroBloquesSobreimpresion"  :"35",
+              "CoordSobreImpresion"       :"42/45",
+              "AtribSobreImpresion"       :"Hora",
+              "TipoInformacion"           :"Hora",
+              "Tamano"                    :"10",
+              "TipoCaracteres"            :"ASCII"
+          }
+        ]
 
