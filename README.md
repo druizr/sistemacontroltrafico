@@ -14,7 +14,7 @@ Github: https://github.com/druizr/sistemacontroltrafico
     + id (int) ID Video
     + inicio_transmision_video (datetime)
 
-## Lista de videos [GET /videos/]
+# Lista de videos [GET /videos/]
 
 + Response 200 (application/json)
 
@@ -29,7 +29,6 @@ Github: https://github.com/druizr/sistemacontroltrafico
                 }
             ]
         }
-
 ## Buscar video [GET /videos/{id}]
 Buscar video por su identificador único (ID)
 
@@ -45,7 +44,6 @@ Buscar video por su identificador único (ID)
             "tamano_video": "2 GB",
             "descargar_video": "http://consultavideo/download/video_1"
         }
-
 ## Eliminar video [DELETE /videos/{id}]
 + Parameters
     + id (int) ID Video
@@ -56,7 +54,6 @@ Buscar video por su identificador único (ID)
             "result": True,
             "message": "El video ha sido eliminado con éxito"
         }
-
 ## Reproducir video [GET /videos/{id}/reproducir]
 
 + Parameters
@@ -72,136 +69,37 @@ Buscar video por su identificador único (ID)
             "descargar_video": "http://consultavideo/download/video_1"
             "source_video":"http//consultavideo/replay/1"
         }
-        
 
-## Lista de cámaras [GET /camaras/]
-
-+ Response 200 (application/json)
-
-        {
-            "Listado de camaras": [
-                {
-                    "id": 1,
-                    "marca":"Samsung UltraHD Pro",
-                    "fecha_agregada":"30-08-2015",
-                    "ip":"192.168.1.200",
-                    "latitud":"-43.000101",
-                    "longitud":"-87.01212",
-                    "configuración":{
-                        "brillo": 20,
-                        "calidad": "1024p",
-                        "color":"rgba(0,0,0)",
-                        "contraste":"25"
-                    }
-                }
-            }
-            ]
-        }
-
-## Añadir Cámara [POST /camaras]
-
-+ Request (application/json)
-
-        {
-            "marca":"Samsung UltraHD 4K Pro",
-            "fecha_add":"30-08-2015",
-            "brillo": 10,
-            "calidad": "1024p",
-            "color":"rgba(0,0,0)",
-            "contraste":25
-            
-        }
-
-## Buscar Cámara [GET /camaras/{id}]
-
-+ Response 200 (application/json)
-
-        {
-            "id": 1,
-            "marca":"Samsung UltraHD Pro",
-            "fecha_agregada":"30-08-2015",
-            "ip":"192.168.1.200",
-            "latitud":"-43.000101",
-            "longitud":"-87.01212",
-            "configuración":{
-                "brillo": 20,
-                "calidad": "1024p",
-                "color":"rgba(0,0,0)",
-                "contraste":25
-            }
-        }
-+ Response 404 (application/json)
-
-        { 
-            "error": "Camara no se encuentra disponible" 
-        }
-
-## Editar Cámara [PATCH /camaras/{id}]
-
-+ Request (application/json)
-
-        {
-            "brillo": 20,
-            "contraste": 25,
-        }
+# Transmitir video [GET /camaras/{id}/transmitir]
 
 + Response 200
 
         {
             "id": 1,
             "marca":"Samsung UltraHD Pro",
-            "fecha_agregada":"05-09-2015",
+            "fecha_add":"31-08-2015",
             "ip":"192.168.1.200",
-            "latitud":"-43.000101",
-            "longitud":"-87.01212",
-            "configuración":{
-                "brillo": 20,
-                "calidad": "1024p",
-                "color":"rgba(0,0,0)",
-                "contraste":25
-            }
-        }
-
-+ Response 404
-
-        { 
-            "error": "Recurso no disponible"
-        }
-
-+ Response 400
-
-        { 
-            "error": "Fallo al modificar el Recurso"
-        }
-        
-## Eliminar Cámara [DELETE /camaras/{id}]
-
-+ Response 200
-
-        { 
-            "result": True,
-            "message": "Cámara eliminada con éxito"
-        }
-
-
-+ Response 201
-
-        {
-            "id": 2,
-            "marca":"Samsung UltraHD 4K Pro",
-            "fecha_add":"30-08-2015",
-            "ip":"192.168.1.201",
             "latitud":"-43.000101",
             "longitud":"-87.01212",
             "configuración":{
                 "brillo": 10,
                 "calidad": "1024p",
                 "color":"rgba(0,0,0)",
-                "contraste":30
+                "contraste":"25"
+            },
+            "Video":{
+                "id": 1,
+                "descargar_video": "http://consultavideo/download/video_1"
+            },
+            "broadcast":{
+                "id": 1,
+                "inicio_broadcast":"31-08-2015 12:00",
+                "descripción": "Transmision de video tiempo real",
+                "source":"http://consultavideo/broadcast/1/play",
+                "fps":30
             }
         }
-        
-## Buscar video - CD [GET /grabar-video/{id}]
+## Buscar y transmitir video - CD [GET /grabar-video/{id}]
 
 + Response 200 (application/json)
 
@@ -227,17 +125,15 @@ Buscar video por su identificador único (ID)
         { 
             "error": "Recurso no se encuentra" 
         }
-        
-## Alarma
-Grupo del recurso Alarmas.
 
+# Alarma
+Grupo del recurso Alarmas.
 ## Alarma [/Alarmas/{IdAlarma}]
 Opciones para el recurso de las Alarmas.
 
 + Parameters
 
     + IdAlarma: 1 (number) - Identificador unico de la Camara.
-    
 ### Crear una Alarma [POST]
 
 + Request Plain Text Message
@@ -274,7 +170,6 @@ Opciones para el recurso de las Alarmas.
     + Headers
 
             X-My-Message-Header: 50
-
 ### Devuelve una Alarma [GET]
 
 + Request Plain Text Message
@@ -313,47 +208,139 @@ Opciones para el recurso de las Alarmas.
               "IP"                :"192.168.1.200",
               "LocalizacionGPS"   :"-43.000101, -87.01212"
             }
-      
-# Transmitir video [GET /camaras/{id}/transmitir]
+
+# Lista de cámaras [GET /camaras/]
+
++ Response 200 (application/json)
+
+        {
+            "Listado de camaras": [
+                {
+                    "id": 1,
+                    "marca":"Samsung UltraHD Pro",
+                    "fecha_agregada":"30-08-2015",
+                    "ip":"192.168.1.200",
+                    "latitud":"-43.000101",
+                    "longitud":"-87.01212",
+                    "configuración":{
+                        "brillo": 20,
+                        "calidad": "1024p",
+                        "color":"rgba(0,0,0)",
+                        "contraste":"25"
+                    }
+                }
+            }
+            ]
+        }
+## Añadir Cámara [POST /camaras]
+
++ Request (application/json)
+
+        {
+            "marca":"Samsung UltraHD 4K Pro",
+            "fecha_add":"30-08-2015",
+            "brillo": 10,
+            "calidad": "1024p",
+            "color":"rgba(0,0,0)",
+            "contraste":25
+            
+        }
+## Buscar Cámara [GET /camaras/{id}]
+
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "marca":"Samsung UltraHD Pro",
+            "fecha_agregada":"30-08-2015",
+            "ip":"192.168.1.200",
+            "latitud":"-43.000101",
+            "longitud":"-87.01212",
+            "configuración":{
+                "brillo": 20,
+                "calidad": "1024p",
+                "color":"rgba(0,0,0)",
+                "contraste":25
+            }
+        }
++ Response 404 (application/json)
+
+        { 
+            "error": "Camara no se encuentra disponible" 
+        }
+## Editar Cámara [PATCH /camaras/{id}]
+
++ Request (application/json)
+
+        {
+            "brillo": 20,
+            "contraste": 25,
+        }
 
 + Response 200
 
         {
             "id": 1,
             "marca":"Samsung UltraHD Pro",
-            "fecha_add":"31-08-2015",
+            "fecha_agregada":"05-09-2015",
             "ip":"192.168.1.200",
+            "latitud":"-43.000101",
+            "longitud":"-87.01212",
+            "configuración":{
+                "brillo": 20,
+                "calidad": "1024p",
+                "color":"rgba(0,0,0)",
+                "contraste":25
+            }
+        }
+
++ Response 404
+
+        { 
+            "error": "Recurso no disponible"
+        }
+
++ Response 400
+
+        { 
+            "error": "Fallo al modificar el Recurso"
+        }
+## Eliminar Cámara [DELETE /camaras/{id}]
+
++ Response 200
+
+        { 
+            "result": True,
+            "message": "Cámara eliminada con éxito"
+        }
+
+
++ Response 201
+
+        {
+            "id": 2,
+            "marca":"Samsung UltraHD 4K Pro",
+            "fecha_add":"30-08-2015",
+            "ip":"192.168.1.201",
             "latitud":"-43.000101",
             "longitud":"-87.01212",
             "configuración":{
                 "brillo": 10,
                 "calidad": "1024p",
                 "color":"rgba(0,0,0)",
-                "contraste":"25"
-            },
-            "Video":{
-                "id": 1,
-                "descargar_video": "http://consultavideo/download/video_1"
-            },
-            "broadcast":{
-                "id": 1,
-                "inicio_broadcast":"31-08-2015 12:00",
-                "descripción": "Transmision de video tiempo real",
-                "source":"http://consultavideo/broadcast/1/play",
-                "fps":30
+                "contraste":30
             }
         }
 
+       
 # Imagen
 Recurso Imagen.
-
 ## Imagen [/Imagenes/{IdImagen}]
 Recurso de las Imagenes.
 
 + Parameters
 
     + IdImagen: 1 (number) - Identificador unico de una Imagen.
-
 ### Crear una Imagen [POST]
 
 + Request Plain Text Message
@@ -390,7 +377,6 @@ Recurso de las Imagenes.
     + Headers
 
             X-My-Message-Header: 50
-
 ### Devuelve una Imagen [GET]
 
 + Request Plain Text Message
@@ -429,10 +415,8 @@ Recurso de las Imagenes.
               "TiempoMs"     :"800",
               "NroCamara"    :"1"
             }
-
 ## Todas las Imagenes [/imagen{?limit}]
 Lista todas las imagenes.
-
 ### Devuelve todas las Imagenes [GET]
 
 + Parameters
@@ -453,14 +437,12 @@ Lista todas las imagenes.
             
 #  SobreImpresion
 Recurso Sobreimpresion.
-
 ## SobreImpresion [/Sobreimpresiones/{IdSobreImpresion}]
 Recurso donde se encuentran las opciones para el recurso de las sobreimpresiones.
 
 + Parameters
 
     + IdSobreImpresion: 1 (number) - Identificador unico del Disco.
-
 ### Crear una Sobre Impresión [POST]
 
 + Request Plain Text Message
@@ -500,7 +482,6 @@ Recurso donde se encuentran las opciones para el recurso de las sobreimpresiones
     + Headers
 
             X-My-Message-Header: 50
-
 ### Devuelve una sobreimpresion [GET]
 
 + Request Plain Text Message
@@ -541,7 +522,6 @@ Recurso donde se encuentran las opciones para el recurso de las sobreimpresiones
               "AtribSobreImpresion"       :"Hora",
               "Tamano"                    :"15",
             }
-
 ### Edita una Sobreimpresion [PUT]
 
 + Request Update Plain Text Message (text/plain)
@@ -553,17 +533,14 @@ Recurso donde se encuentran las opciones para el recurso de las sobreimpresiones
         { "message": "La sobre impresion fue actualizado correctamente!" }
 
 + Response 204
-
 ## Eliminar una Sobreimpresion [DELETE /sobreimpresion/{IdSobreImpresion}]
 
 + Parameters
     + IdSobreImpresion (int)
 
 + Response 204
-
 ## Todos las SobreImpresiones [/Sobreimpresion{?limit}]
 Lista todas las sobreimpresiones de los videos del sistema de vigilancia del control de trafico urbano.
-
 ### Devuelve todas los Sobreimpresiones [GET]
 
 + Parameters
